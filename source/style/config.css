@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,500;1,600&family=Righteous&family=Sarala:wght@400;700&display=swap');
+@import url(style.css);
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+    border: none;
+    scroll-behavior: smooth scroll;
+}
+
+:root{
+    --port-color: #081b29;
+    --port-second-color: #112e42;
+    --text-color: #ededed;
+    --main-color: #00abf0;
+}
