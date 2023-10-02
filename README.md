@@ -33,13 +33,13 @@ This is a simple personal portfolio template to showcase your information and pr
 1. Clone this repository to your computer:
 
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/joseook/portfolio-basic.git
    ```
 
 2. Navigate to the project folder:
 
    ```bash
-   cd your-repository
+   cd portfolio-basic
    ```
 
 3. Open the `index.html` file in your web browser to view your personal portfolio.
@@ -73,4 +73,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This project is for educational purposes.
 
-```
