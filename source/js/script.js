@@ -1,44 +1,37 @@
-// togle icon navbar
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+document.querySelector('#contact').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-menuIcon.addEventListener('click', () => {
-    navbar.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-});
+    const emailInput = document.querySelector('input[type="email"]');
+    const email = emailInput.value;
 
-// scroll sections
-let sections = document.querySelectorAll('.section');
-let navLinks = document.querySelectorAll('header nav ul li a');
+    if (!isValidEmail(email)) {
+        alert('Por favor, insira um endereço de e-mail válido.');
+        return;
+    }
 
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 100;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-
-        if (top >= offset && top < offset + height) {
-            // active navbar links
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector(`header nav a[href*=${id}]`).classList.add('active');
-            })
-            // active section for animation on scroll
-            sec.classList.add('show-animate');
-        }
-        // if want to use animation that repeats on scroll use this
-        else {
-            sec.classList.remove('show-animate');
+    fetch(e.target.action, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: {
+            'Accept': 'application/json'
         }
     })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            alert('Mensagem enviada com sucesso! Obrigado por entrar em contato.');
+            e.target.reset();
+        } else {
+            alert('Houve um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao enviar o formulário:', error);
+        alert('Houve um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.');
+    });
+});
 
-    //sticky header
-    let header = document.querySelector('.header');
-
-    header.classList.toggle('sticky', window.scrollY > 100);
-
-    // remove toogle icon and navbar when click navbar links (scroll)
-    menuIcon.classList.remove('active');
-    navbar.classList.remove('active');
+function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
 }
