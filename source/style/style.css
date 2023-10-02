@@ -154,7 +154,7 @@ section {
   align-items: center;
   width: 15rem;
   height: 100%;
-  background: transparent !important;
+  background: transparent;
   border: 0.2rem solid var(--main-color);
   border-radius: 0.8rem;
   font-size: 1.8rem;
@@ -171,12 +171,12 @@ section {
 }
 
 .btn-box .btn:nth-child(2) {
-  background: transparent !important;
+  background: transparent;
   color: var(--main-color);
 }
 
 .btn-box .btn:nth-child(2):hover {
-  color: var(--port-color) !important;
+  color: var(--port-color);
 }
 
 .btn-box .btn:nth-child(2)::before {
@@ -250,26 +250,20 @@ section {
 }
 
 .home-img {
-  position: relative;
   width: 100rem;
   height: 90rem;
-  border-radius: 50%;
   display: flex;
   align-items: center;
-  margin-left: 50%;
+  margin-left: 30%;
   z-index: 1;
-  transition: 0.5s;
 }
 
 .home-img img {
-  width: 90%;
+  width: 150%;
   border-radius: 50%;
+  position: relative;
   border: 0.2rem solid var(--main-color);
   object-fit: cover;
-}
-
-.home-img:hover {
-  opacity: 0.8;
 }
 
 /* ABOUT SECTION DESIGN */
@@ -445,7 +439,23 @@ span {
   background: var(--port-second-color);
   z-index: -1;
   transition: 0.5s;
-  overflow: hidden !important;
+  overflow: hidden;
+}
+
+.education-box, .experience-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.education-box:hover::before, .experience-box:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 150, 255, 0.2); /* Cor suave */
+  animation: slideRightFade 1s forwards;
 }
 
 .education-container .container:hover::before,
@@ -646,7 +656,7 @@ span {
   background-size: cover;
   background-position: center;
   border-top: 10px solid black;
-  padding-bottom: 7rem;
+  padding-bottom: 10rem;
 }
 
 .contact form {
@@ -665,7 +675,29 @@ span {
 .contact form .contact-box .input-field {
   position: relative;
   width: 40%;
-  margin: 0.8rem 0;
+
+}
+
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+input[type="text"]::before, input[type="email"]::before, input[type="tel"]::before, textarea::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 150, 255, 0.2); /* Cor suave */
+  z-index: -1;
+  transition: left 1s;
+}
+
+input[type="text"]:hover::before, input[type="email"]:hover::before, input[type="tel"]:hover::before, textarea:hover::before {
+  left: 100%;
 }
 
 .contact form .contact-box .input-field input,
@@ -678,9 +710,11 @@ span {
   background: transparent;
   border-radius: 0.6rem;
   border: 0.2rem solid var(--main-color);
-  overflow: hidden !important;
+  overflow: hidden;
   z-index: 1;
 }
+
+
 
 .contact form .contact-box .input-field input::placeholder,
 .contact form .textarea-input textarea::placeholder {
@@ -786,47 +820,6 @@ span {
 
 /* ANIMATION RELOAD AND SCROLL */
 
-.animate {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  z-index: 98;
-}
-
-.animate.home-img {
-  width: 50%;
-}
-
-.logo .animate,
-.navbar .animate,
-#menu-icon .animate,
-.home.show-animate .animate {
-  animation: shoRight 1s ease forwards infinite;
-  animation-delay: calc(0.3s * var(--i));
-}
-
-.animate.about,
-.animate.experience {
-  transition: 1s ease;
-  transition-delay: calc(0.3s / var(--i));
-  animation: none;
-}
-
-.experience .education-box .animate-experience,
-.experience .experience-box .animate-experience{
-     width: 105%;
-}
-
-.about.show-animate .animate.about,
-.experience.show-animate .animate.experience,
-.experience.show-animate .education-box .animate.experience,
-.experience.show-animate .experience-box .animate.experience{
-  transition-delay: calc(0.3s * var(--i));
-  width: 0;
-}
 
 /* BREAKPOINTS */
 
@@ -1036,5 +1029,18 @@ span {
 @keyframes showRight {
   100% {
     width: 0;
+  }
+}
+
+
+@keyframes slideRightFade {
+  0% {
+      left: -100%;
+  }
+  50% {
+      left: 0;
+  }
+  100% {
+      left: 100%;
   }
 }
