@@ -6,7 +6,7 @@ This is a simple personal portfolio template to showcase your information and pr
 
 ## Demo
 
-- See a live demo of the portfolio [gif] (./source/img/screenshots/giphy.mp4).
+- See a live demo of the portfolio [here](./source/img/screenshots/projeto.gif).
 
 ## Contents
 
