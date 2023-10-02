@@ -6,7 +6,7 @@ This is a simple personal portfolio template to showcase your information and pr
 
 ## Demo
 
-- See a live demo of the portfolio [here](./source/img/screenshots/giphy.mp4).
+- See a live demo of the portfolio [gif] (./source/img/screenshots/giphy.mp4).
 
 ## Contents
 
@@ -21,8 +21,8 @@ This is a simple personal portfolio template to showcase your information and pr
 
 - `index.html`: Contains the HTML structure of the portfolio.
 - `style`: Contains the portfolio's style files.
-      - `global.css`
-      - `style.css`
+    - `global.css`
+    - `style.css`
 - `js`: Contains JavaScript scripts for animations and form validation.
     - `script.js`
 - `img/`: Folder that should contain the images used in the portfolio.
