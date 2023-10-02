@@ -63,7 +63,7 @@ This is a simple personal portfolio template to showcase your information and pr
 
 ### Contact Form
 
-- The contact form is set up to send messages using the Formspree service. To customize the form, follow the instructions in the [Formspree documentation](https://formspree.io/documentation).
+- The contact form is set up to send messages using the Formspree service. To customize the form, follow the instructions in the [Formspree documentation](https://formspree.io/formbutton/docs/).
 
 ## License
 
